@@ -1,5 +1,5 @@
 import math
-
+#Goal-1_2
 class Point:
     def __init__(self, x,y):
         self._pt = (x,y)
