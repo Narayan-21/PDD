@@ -44,4 +44,23 @@ class Polygon:
             return self.vertices > other.vertices
         else:
             return NotImplemented
-    
+        
+class Polygons:
+    def __init__(self,m,r):
+        if m<3:
+            raise ValueError('m must be greater than 3')
+        self.m = m
+        self.r = r
+        self.polygons = [Polygon(i,r) for i in range(3,m+1)]
+    def __len__(self):
+        return self.m-2
+    def __repr__(self):
+        return f'Polygons(m={self.m}, r= {self.r})'
+    def __getitem__(self,s):
+        return self.polygons[s]
+    @property
+    def max_eff_poly(self):
+        sorted_poly = sorted(self.polygons,
+                             key=lambda p: p.area/p.perimeter,
+                             reverse=True)
+        return sorted_poly[0]
