@@ -1,3 +1,6 @@
+# Converting all the properties created in the Project-1/Goal-1_1.py into lazy properties.
+
+
 import math
 
 class Polygon:
