@@ -1,3 +1,5 @@
+# Creating a lazy iterator that will produce a namedtuple for each of data.
+
 from collections import namedtuple
 from datetime import datetime
 from functools import partial
@@ -14,8 +16,6 @@ def read_data():
     with open(f_name) as f:
         next(f)
         yield from f
-        
-raw_data = read_data()
 
 def parse_int(value, *, default=None):
     try:
