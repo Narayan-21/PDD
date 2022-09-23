@@ -1,4 +1,4 @@
-# Creating a lazy iterator that will produce a namedtuple for each of data.
+# Creating a lazy iterator that will produce a namedtuple for each row of data.
 
 from collections import namedtuple
 from datetime import datetime
