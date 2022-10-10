@@ -4,7 +4,7 @@ from collections import namedtuple
 
 f_names = 'cars.csv', 'personal_info.csv'
 
-def get_dilect(f_name):
+def get_dialect(f_name):
     with open(f_name) as f:
         return csv.Sniffer().sniff(f.read(1000))
 
@@ -13,7 +13,7 @@ class FileParser:
         self.f_name = f_name
     def __enter__(self):
         self._f = open(self.f_name, 'r')
-        self._reader = csv.reader(self._f, get_dilect(self.f_name))
+        self._reader = csv.reader(self._f, get_dialect(self.f_name))
         headers = map(lambda s: s.lower(),next(self._reader))
         self._nt = namedtuple('Data', headers)
         return self
