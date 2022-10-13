@@ -1,3 +1,5 @@
+# Generator based coroutine.
+
 from collections import deque
 
 def produce_elements(dq,n):
