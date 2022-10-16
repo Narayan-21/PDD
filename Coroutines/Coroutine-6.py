@@ -31,6 +31,17 @@ avg.throw(WriteAverage)
 avg.send(20)
 avg.throw(WriteAverage)
 
+# Using the delegator
+def delegator():
+    yield from averager('sample.csv')
+
+d=delegator()
+next(d)
+d.send(3)
+d.send(5)
+d.throw(WriteAverage)
+d.close()
+
 # Reading the created sample.csv file back
 
 with open('sample.csv') as f:
